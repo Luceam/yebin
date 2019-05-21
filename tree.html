@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="stylesheet" href="style.css">
+	<title>20180601 김예빈</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+<div class="fixed1" >
+인터넷활용<br>
+20180601<br>
+김예빈
+</div>
+
+<div class="fixed2" >
+  <a href="홈페이지.html" target="_self"><i class="fas fa-home"></i> HOME</a>
+</div>
+
+<div><img src="꽃.png" alt="grapic"></div>
+
+
+<b><p style="text-align:center; color:RGB(255, 89, 71);">트리</p></b>
+<pre style="padding:0px 500px 0px 500px;">
+#include < stdio.h>
+#include < stdlib.h>
+#include < memory.h>
+
+typedef struct TreeNode
+{
+    int data;
+    TreeNode *llink;
+    TreeNode *rlink;
+};
+
+void preorder(TreeNode *tree) //전위순회 함수
+{
+    if(tree){
+
+    printf("[%d] ", tree->data);
+
+    preorder(tree->llink);
+
+    preorder(tree->rlink);
+
+    }
+
+}
+
+ 
+void inorder(TreeNode *tree) //중위순회 함수
+{
+
+    if(tree){
+
+    inorder(tree->llink);
+
+    printf("[%d] ", tree->data);
+
+    inorder(tree->rlink);
+
+    }
+}
+
+ 
+void postorder(TreeNode *tree) //후위순회 함수
+{
+
+    if(tree){
+
+    postorder(tree->llink);
+
+    postorder(tree->rlink);
+
+    printf("[%d] ", tree->data);
+
+    }
+}
+
+ 
+int get_node(TreeNode *tree)
+{
+
+    int cnt=0;
+
+    if(tree!=NULL) 
+
+        cnt = 1+ get_node(tree->llink) + get_node(tree->rlink);
+
+    return cnt;
+}
+
+ 
+int max(int x, int y)
+{
+
+    if(x>y) return x;
+
+    else return y;
+}
+
+ 
+int get_height(TreeNode *tree)
+{
+
+    int height=0;
+
+    if(tree!=NULL)
+
+        height=1+ max(get_height(tree->llink), get_height(tree->rlink));
+
+    return height;
+
+
+}
+
+ 
+TreeNode *insert_node(TreeNode *tree, int item)
+{
+
+    TreeNode *p=tree , *node =(TreeNode *)malloc(sizeof(TreeNode));
+
+    node->data=item;  node->llink=node->rlink=NULL;
+
+    if(p==NULL) return node;
+
+    if(p->data < node->data) //왼쪽
+
+        p=insert_node(p->llink, item);
+
+    else //오른쪽
+
+        p=insert_node(p->rlink, item);
+
+    return tree;
+
+}
+
+ 
+
+void main()
+{
+
+    int menu,item;
+
+    TreeNode *root=NULL, *n2, *n3;
+
+    
+
+    while(1)
+    {
+        printf("\n메뉴선택 1)삽입 2)삭제 3)검색 4)순회 5)트리구조 ... 7)종료");
+
+        scanf("%d",&menu);
+
+        if(menu==7) break;
+
+ 
+
+        switch(menu)
+
+        {
+
+        case 1:
+
+            printf("\n 이진검색트리에 삽입할 정수 입력 : ");
+
+            scanf("%d", &item);
+
+            root = insert_node(root, item);
+
+            break;
+
+        case 2:
+
+            break;
+
+        case 3:
+
+            break;
+
+        case 4:
+
+             printf("\n 전위순회 결과 : "); preorder(root);
+
+            printf("\n 중위순회 결과 : "); inorder(root);
+
+            printf("\n 후위순회 결과 : "); postorder(root);
+
+            
+
+            break;
+
+        case 5:
+
+            printf("\n 트리의 노드개수 = %d", get_node(root));
+
+            printf("\n 트리 높이 = %d ", get_height(root));
+
+            printf("\n\n");
+
+            break;
+
+        default:
+
+            break;
+
+ 
+        }
+
+    }
+
+}
+
+</pre>
+<a style="float:top;" href="홈페이지.html" target="_self">다시돌아가기</a>
+
+</body>
+</html>

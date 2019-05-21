@@ -1,0 +1,42 @@
+
+.click:link, .click:visited {
+  background-color: RGB(255, 145, 149);
+  color: white;
+  padding: 70px 70px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.click:hover, .click:active {
+  background-color: RGB(200, 143, 156);
+}
+
+div {
+text-align: center;
+}
+
+.border {
+  border: 1px dashed RGB(255, 145, 149);
+  margin: 0px 600px 20px 600px;
+}
+
+div.fixed1 {
+  position: fixed;
+  top:100px;
+   right: 100px;
+  width: 200px;
+  height: 130px;
+  background-color:pink;
+  border: 3px dotted white;
+  font-size:30px;
+}
+
+div.fixed2 {
+  position: fixed;
+   right: 100px;
+   top:300px;
+  width: 200px;
+  height: 50px;
+  border: 3px dotted pink;
+  font-size:30px;
+}
